@@ -1,4 +1,7 @@
+"""Celery tasks"""
+
 from .celery import app
+
 
 @app.task
 def add(x, y):

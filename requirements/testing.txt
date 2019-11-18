@@ -1,0 +1,5 @@
+# Test runner
+pytest>=5.2.4,<5.3.0
+
+# Code quality
+flake8>=3.7.9,<3.8.0

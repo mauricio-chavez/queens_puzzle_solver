@@ -14,3 +14,5 @@ docker-compose up
 
 * <https://blog.codeship.com/using-docker-compose-for-python-development/>
 * <https://docs.celeryproject.org/en/latest/>
+* <https://www.geeksforgeeks.org/python-program-for-n-queen-problem-backtracking-3/>
+* <https://youtu.be/0DeznFqrgAI>

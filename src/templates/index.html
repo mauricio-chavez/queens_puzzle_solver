@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Queens Puzzle Solver</title>
-</head>
-<body>
-    <h1>I'm a solver</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section">
+  <form action="{{ url_for('solutions') }}" class="container">
+    <h1 class="title">
+      Queens Solution Solver
+    </h1>
+    <div class="field">
+      <label for="size-id" class="label subtitle">Enter board size to find solutions:</label>
+      <div class="control">
+        <input class="input" id="size-id" name="n" type="number" name=min="1" value="1" style="max-width: 30%;" />
+      </div>
+    </div>
+    <button class="button is-link">
+      <span class="icon">
+        <i class="fas fa-chess-queen"></i>
+      </span>
+      <span>Get solutions!</span>
+    </button>
+  </form>
+</section>
+{% endblock content %}

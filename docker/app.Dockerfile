@@ -10,7 +10,7 @@ RUN apk update \
 
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
-COPY ./requirements.txt .
+COPY ./requirements/app.txt ./requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
