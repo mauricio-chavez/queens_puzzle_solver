@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+
+  redis:
+    image: redis
+    expose:
+      - "6379"
+
+  celery_worker:
+    build:
+      context: .
+      dockerfile: ./docker/celery.Dockerfile
+    volumes:
+      - .:/src
+    depends_on:
+      - redis
+
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/app.Dockerfile
+    ports:
+      - "8000:8000"
+    command: bash -c 'while !</dev/tcp/postgres/5432; do sleep 1; done; python main.py'
+    volumes:
+      - .:/src
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - DATABASE_URL=postgresql://postgres@postgres:5432/postgres
