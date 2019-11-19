@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt
 
 ENV PYTHONUNBUFFERED 1
 
-COPY src/ .
+COPY queens_puzzle/ .

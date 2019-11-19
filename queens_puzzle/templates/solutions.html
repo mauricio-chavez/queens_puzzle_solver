@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section">
+  <h1 class="title">
+    {% if status == 0 %}
+    We've started looking for solutions, come back in a while.
+    <p class="buttons" style="margin-top: 15px;">
+      <a href="{{ url_for('index') }}" class="button is-link">
+        <span class="icon">
+          <i class="fas fa-chess-queen"></i>
+        </span>
+        <span>Back to index</span>
+      </a>
+      <a href="{{ url_for('solutions') }}?n={{ n }}" class="button is-info">
+        <span class="icon">
+          <i class="fas fa-redo"></i>
+        </span>
+        <span>Refresh</span>
+      </a>
+    </p>
+    {% elif status == 1 %}
+    We're still looking for solutions, come back in a while
+    <p class="buttons" style="margin-top: 15px;">
+      <a href="{{ url_for('index') }}" class="button is-link">
+        <span class="icon">
+          <i class="fas fa-chess-queen"></i>
+        </span>
+        <span>Back to index</span>
+      </a>
+      <a href="{{ url_for('solutions') }}?n={{ n }}" class="button is-info">
+        <span class="icon">
+          <i class="fas fa-redo"></i>
+        </span>
+        <span>Refresh</span>
+      </a>
+    </p>
+    {% elif status == 2 %}
+    Solutions
+    {% endif %}
+  </h1>
+
+  {% if status == 2 %}
+
+  {% if solutions %}
+  <div class="columns">
+    {% for solution in solutions %}
+    <div class="column is-one-quarter">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Solution {{ loop.index }}
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content has-text-centered">
+            {% for paragraph in solution.board_paragraphs() %}
+            <p>{{paragraph}}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <h2>No solutions for n = {{ n }}</h2>
+  {% endif %}
+  <div style="margin-top: 20px;">
+    <a href="{{ url_for('index') }}" class="button is-link">
+      <span class="icon">
+        <i class="fas fa-chess-queen"></i>
+      </span>
+      <span>Back to index</span>
+    </a>
+  </div>
+  {% endif %}
+
+  {% endblock content %}

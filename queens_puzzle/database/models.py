@@ -17,6 +17,20 @@ class Solution(Base):
         self.n = n
         self.solution = solution
 
+    def __str__(self):
+        string = '|'
+        for row in self.solution:
+            for box in row:
+                if box == 1:
+                    string += '👸|'
+                else:
+                    string += '♟️|'
+            string += '\n'
+        return string
+
+    def board_paragraphs(self):
+        return str(self).split('\n')
+
 
 class SolutionQuery(Base):
     """Saves if a n has been queried"""
