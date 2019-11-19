@@ -10,6 +10,8 @@ In order to run this project, you must run the following in the project root:
 docker-compose up
 ```
 
+Then, you have to access to solver web app in <http://localhost:8000>.
+
 ## References
 
 * <https://blog.codeship.com/using-docker-compose-for-python-development/>
