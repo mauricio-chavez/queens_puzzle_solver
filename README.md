@@ -12,6 +12,12 @@ docker-compose up
 
 Then, you have to access to solver web app in <http://localhost:8000>.
 
+When you are done, run the following:
+
+```command-line
+docker-compose down
+```
+
 ## References
 
 * <https://blog.codeship.com/using-docker-compose-for-python-development/>
